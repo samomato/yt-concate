@@ -1,7 +1,10 @@
 from yt_concate.pipeline.steps.preflight import Preflight
 from yt_concate.pipeline.steps.get_video_list import GetVideoList
+from yt_concate.pipeline.steps.initialize_yt import InitializeYT
 from yt_concate.pipeline.steps.download_captions import DownloadCaptions
 from yt_concate.pipeline.steps.read_caption import ReadCaption
+from yt_concate.pipeline.steps.search import Search
+from yt_concate.pipeline.steps.download_videos import DownloadVideos
 from yt_concate.pipeline.steps.posflight import Posflight
 from yt_concate.pipeline.steps.step import StepException
 from yt_concate.pipeline.pipline import Pipeline
@@ -13,13 +16,17 @@ def main():
     steps = [
         Preflight(),
         GetVideoList(),
+        InitializeYT(),
         DownloadCaptions(),
         ReadCaption,
+        Search(),
+        DownloadVideos(),
         Posflight(),
          ]
 # 這裡上下都用多行式的寫法
     inputs = {
-        'channel_id': CHANNEL_ID
+        'channel_id': CHANNEL_ID,
+        'search_word': 'incredible',
     }
     utils = Utils()
     p = Pipeline(steps)
