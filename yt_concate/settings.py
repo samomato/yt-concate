@@ -8,3 +8,4 @@ DOWNLOADS_DIR = 'downloads'
 VIDEOS_DIR = os.path.join(DOWNLOADS_DIR, 'videos')
 # 或寫成： DOWNLOADS + '/videos'
 CAPTIONS_DIR = os.path.join(DOWNLOADS_DIR, 'captions')
+OUTPUT_DIR = 'outputs'
